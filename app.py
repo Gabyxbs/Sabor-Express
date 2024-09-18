@@ -1,6 +1,8 @@
 import os
 
-restaurantes = []
+restaurantes = [{'nome': 'churascaria bom gosto', 'categoria:': 'churasco', 'ativo': True}, 
+                {'nome': 'pizza sagrada', 'categoria': 'italiana', 'ativo': False}, 
+                {'nome': 'kioto', 'categoria': 'japonesa', 'ativo': False}]
 
 def exibir_nome_do_programa():
     print('𝓢𝓪𝓫𝓸𝓻 𝓮𝔁𝓹𝓻𝓮𝓼𝓼\n')
@@ -35,9 +37,14 @@ def cadastrar_novo_restaurante():
 
 def listar_restaurantes():
     exibir_subtitolu('Listando os restaurantes\n')
+
     for restaurante in restaurantes:
-        print(f'.{restaurante}')
-    voltar_ao_menu_principal()
+        nome_restaurante = restaurante['nome']
+        categoria = restaurante['categoria']
+        ativo =restaurante['ativo']
+        print(f'-{nome_restaurante} | {categoria} | {ativo}')
+        voltar_ao_menu_principal()
+
 
 def escolher_opcao():
      try:
@@ -51,11 +58,10 @@ def escolher_opcao():
             print('Ativar restaurante')
         elif opcao_escolhida == 4:
             finalizar_app()
-        else:
-            opcao_invalida()
+
      except:
          opcao_invalida()
-               
+
 def main():
     os.system('cls')
     exibir_nome_do_programa()
